@@ -1,0 +1,33 @@
+@defer {
+  <div class="relative w-full h-64 flex flex-col justify-center text-white rounded-lg overflow-hidden">
+    <!-- تصویر پس‌زمینه -->
+    <div class="absolute inset-0 bg-cover bg-center brightness-75"
+         style="background-image: url('assets/images/profile/profile-bg.jpg');"></div>
+
+    <!-- محتوای پروفایل -->
+    <div class="relative flex flex-col w-full pr-5">
+      <img ngSrc="assets/images/profile/user-avatar.png" alt="User Avatar"
+           class="w-28 h-28 rounded-full border-4 border-white shadow-lg" height="264" width="264">
+      <h2 class="mt-4 text-xl font-semibold">
+        @if (loading()) {
+          ...
+        } @else {
+          {{userName()}}
+        }
+      </h2>
+      <p class="mt-2 text-sm text-right opacity-90">
+        @if (loading()) {
+          ...
+        } @else {
+          {{biographyDescription()}}
+        }
+      </p>
+        <app-feedback-realtime/>
+
+    </div>
+  </div>
+} @placeholder {
+  <div>در حال بارگذاری کامپوننت</div>
+} @loading (minimum 200ms){
+  <div>در حال بارگذاری پروفایل ...</div>
+}

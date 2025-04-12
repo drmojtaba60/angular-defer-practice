@@ -1,0 +1,50 @@
+<div>
+  <div class="rounded-lg bg-amber-200 p-5 m-3">
+    @defer (on  timer(1500ms)) {
+      <h1>This is trigger "on timer : delay 1500ms"</h1>
+    } @placeholder {
+      <h4>placeholder is delay on timer</h4>
+    }
+  </div>
+  <div class="rounded-xl bg-blue-200 p-5 m-3">
+    @defer {
+      <h1>placeholder(minimum 1700ms)</h1>
+    } @placeholder(minimum 1700ms) {
+      <h4>placeholder with minimum 1500ms ...</h4>
+    }
+  </div>
+  <div class="rounded-xl bg-blue-500 text-white p-5 m-3">
+    @defer {
+      <h1>defer body content by placeholder after 2s </h1>
+    } @placeholder (minimum 2s){
+      <app-skeleton/>
+    }
+  </div>
+  <div class="rounded-xl bg-blue-500 text-white p-5 m-3">
+    @defer {
+      <h1>defer body content by loading after 1s </h1>
+    } @loading (minimum 1s){
+      <app-skeleton/>
+    }
+  </div>
+  <div class="rounded-xl bg-blue-500 text-white p-5 m-3">
+    <button #btnShowContent class="rounded text-3xl p-2 text-white bg-black">show content on interaction with para</button>
+    @defer (on  interaction(btnShowContent)){
+      <h1>defer body content by interaction with parameter</h1>
+    } @loading (minimum 1s){
+      <app-skeleton/>
+    }
+  </div>
+
+  <div class="rounded-xl bg-blue-500 text-white p-5 m-3">
+
+    @defer (on  interaction){
+      <h1>defer body content by on  interaction without parameter </h1>
+    } @loading (minimum 3s){
+      <app-skeleton/>
+    } @placeholder{
+      <span  class="rounded text-3xl p-2 text-white bg-black">show content on interaction without para </span>
+    }
+  </div>
+
+</div>
