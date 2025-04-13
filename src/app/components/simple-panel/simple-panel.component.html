@@ -47,4 +47,28 @@
     }
   </div>
 
+
+  <div class="rounded-xl bg-blue-500 text-white p-5 m-3">
+
+    @defer (on  hover){
+      <h1>defer body content by on  interaction without parameter </h1>
+    } @loading (minimum 1s){
+      <app-skeleton/>
+    } @placeholder{
+      <span  class="rounded text-3xl p-2 text-white bg-black">defer on hover ... </span>
+    }
+  </div>
+
+  <div class="rounded-xl bg-orange-300 text-blue-700 p-5 m-3">
+
+    @defer (when  !isLoadingDeferred()){
+      <h1>defer body when condition trigger </h1>
+      <div>
+        {{ isLoadingDeferred() ? 'isLoadingDeferred is true' : 'isLoadingDeferred is false'}}
+      </div>
+    } @placeholder{
+      <app-skeleton/>
+    }
+  </div>
+
 </div>
